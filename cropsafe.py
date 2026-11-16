@@ -1,20 +1,3 @@
-"""AI-Based Crop-Safe Path Planning for an Autonomous Potato-Field Robot.
-
-Run:  python cropsafe.py          (saves the figures to screenshots/)
-      python cropsafe.py --show   (also opens the figures in windows)
-
-Problem formulation (Task 2)
-  State        : the robot's cell (row, col) on the field grid.
-  Initial state: the cell marked S.
-  Actions      : move one cell North, East, South or West (no diagonal moves,
-                 so the robot never cuts the corner of a crop row).
-  Transition   : (r, c) + (dr, dc) -> (r + dr, c + dc), allowed only if the new
-                 cell is inside the field and is a FREE cell. Potato rows,
-                 crop-protection regions and obstacles can never be entered.
-  Goal test    : state == cell marked G.
-  Path cost    : sum of step costs; entering a cell costs 1, plus PENALTY if the
-                 cell touches (8-neighbourhood) a crop-protection region.
-"""
 import heapq
 import os
 import sys
